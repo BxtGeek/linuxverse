@@ -9,7 +9,7 @@ const path = require('path');
 
 const distros = JSON.parse(fs.readFileSync('src/data/distros.json', 'utf8'));
 const OUT = 'docs';
-const SITE_URL = 'https://yourusername.github.io/linuxverse';
+const SITE_URL = 'https://bxtgeek.github.io/linuxverse';
 const SITE_NAME = 'LinuxVerse';
 
 // ── helpers ──────────────────────────────────────────────────────────────────
