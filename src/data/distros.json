@@ -6,11 +6,23 @@
     "family": "Debian",
     "base": "Debian",
     "package_manager": "APT",
-    "desktop": ["GNOME", "KDE Plasma", "XFCE", "LXQt", "MATE", "Budgie"],
+    "desktop": [
+      "GNOME",
+      "KDE Plasma",
+      "XFCE",
+      "LXQt",
+      "MATE",
+      "Budgie"
+    ],
     "release_model": "Fixed",
     "latest_version": "24.04 LTS",
     "release_date": "2024-04-25",
-    "categories": ["beginner", "developer", "desktop", "server"],
+    "categories": [
+      "beginner",
+      "developer",
+      "desktop",
+      "server"
+    ],
     "description": "Ubuntu is one of the most popular Linux distributions, known for its ease of use and large community. Backed by Canonical, it offers long-term support releases every two years and standard releases every six months.",
     "logo": "https://assets.ubuntu.com/v1/29985a98-ubuntu-logo32.png",
     "screenshots": [],
@@ -20,8 +32,17 @@
     "lightweight": false,
     "rolling": false,
     "enterprise": true,
-    "recommended_uses": ["General desktop", "Web development", "Server hosting", "Learning Linux"],
-    "related": ["linux-mint", "pop-os", "zorin-os"]
+    "recommended_uses": [
+      "General desktop",
+      "Web development",
+      "Server hosting",
+      "Learning Linux"
+    ],
+    "related": [
+      "linux-mint",
+      "pop-os",
+      "zorin-os"
+    ]
   },
   {
     "name": "Fedora",
@@ -30,11 +51,21 @@
     "family": "Independent",
     "base": "Independent",
     "package_manager": "DNF",
-    "desktop": ["GNOME", "KDE Plasma", "XFCE", "LXQt", "MATE", "Cinnamon"],
+    "desktop": [
+      "GNOME",
+      "KDE Plasma",
+      "XFCE",
+      "LXQt",
+      "MATE",
+      "Cinnamon"
+    ],
     "release_model": "Fixed",
     "latest_version": "40",
     "release_date": "2024-04-23",
-    "categories": ["developer", "desktop"],
+    "categories": [
+      "developer",
+      "desktop"
+    ],
     "description": "Fedora is a cutting-edge Linux distribution sponsored by Red Hat. It showcases the latest open-source technologies and serves as the upstream source for Red Hat Enterprise Linux.",
     "logo": "https://fedoraproject.org/favicon.ico",
     "screenshots": [],
@@ -44,8 +75,16 @@
     "lightweight": false,
     "rolling": false,
     "enterprise": false,
-    "recommended_uses": ["Software development", "Exploring new Linux features", "GNOME desktop experience"],
-    "related": ["rhel", "centos-stream", "nobara"]
+    "recommended_uses": [
+      "Software development",
+      "Exploring new Linux features",
+      "GNOME desktop experience"
+    ],
+    "related": [
+      "rhel",
+      "centos-stream",
+      "nobara"
+    ]
   },
   {
     "name": "Arch Linux",
@@ -54,11 +93,17 @@
     "family": "Independent",
     "base": "Independent",
     "package_manager": "Pacman",
-    "desktop": ["Any (user choice)"],
+    "desktop": [
+      "Any (user choice)"
+    ],
     "release_model": "Rolling",
-    "latest_version": "2024.06.01",
-    "release_date": "2024-06-01",
-    "categories": ["developer", "rolling", "advanced"],
+    "latest_version": "2026.06.01",
+    "release_date": "2026-06-01",
+    "categories": [
+      "developer",
+      "rolling",
+      "advanced"
+    ],
     "description": "Arch Linux is a minimalist, rolling-release distribution that gives users complete control over their system. Famous for its excellent wiki and AUR (Arch User Repository), it follows a 'do it yourself' philosophy.",
     "logo": "https://archlinux.org/static/favicon.png",
     "screenshots": [],
@@ -68,8 +113,17 @@
     "lightweight": true,
     "rolling": true,
     "enterprise": false,
-    "recommended_uses": ["Advanced users", "Custom system builds", "Bleeding-edge software", "Learning Linux internals"],
-    "related": ["manjaro", "endeavouros", "garuda-linux"]
+    "recommended_uses": [
+      "Advanced users",
+      "Custom system builds",
+      "Bleeding-edge software",
+      "Learning Linux internals"
+    ],
+    "related": [
+      "manjaro",
+      "endeavouros",
+      "garuda-linux"
+    ]
   },
   {
     "name": "Linux Mint",
@@ -78,11 +132,18 @@
     "family": "Debian",
     "base": "Ubuntu",
     "package_manager": "APT",
-    "desktop": ["Cinnamon", "MATE", "XFCE"],
+    "desktop": [
+      "Cinnamon",
+      "MATE",
+      "XFCE"
+    ],
     "release_model": "Fixed",
     "latest_version": "21.3",
     "release_date": "2024-01-12",
-    "categories": ["beginner", "desktop"],
+    "categories": [
+      "beginner",
+      "desktop"
+    ],
     "description": "Linux Mint is designed to be easy to use and elegant. Built on Ubuntu, it provides a familiar desktop experience with the Cinnamon DE, making it ideal for Windows converts.",
     "logo": "https://linuxmint.com/favicon.ico",
     "screenshots": [],
@@ -92,8 +153,16 @@
     "lightweight": false,
     "rolling": false,
     "enterprise": false,
-    "recommended_uses": ["Windows migrants", "Home desktop", "General productivity"],
-    "related": ["ubuntu", "zorin-os", "elementary-os"]
+    "recommended_uses": [
+      "Windows migrants",
+      "Home desktop",
+      "General productivity"
+    ],
+    "related": [
+      "ubuntu",
+      "zorin-os",
+      "elementary-os"
+    ]
   },
   {
     "name": "Manjaro",
@@ -102,11 +171,19 @@
     "family": "Independent",
     "base": "Arch",
     "package_manager": "Pacman",
-    "desktop": ["KDE Plasma", "GNOME", "XFCE"],
+    "desktop": [
+      "KDE Plasma",
+      "GNOME",
+      "XFCE"
+    ],
     "release_model": "Rolling",
     "latest_version": "24.0",
     "release_date": "2024-05-11",
-    "categories": ["beginner", "rolling", "desktop"],
+    "categories": [
+      "beginner",
+      "rolling",
+      "desktop"
+    ],
     "description": "Manjaro makes Arch Linux accessible to everyday users. It adds a graphical installer, curated software selection, and delayed rolling updates that are tested for stability before release.",
     "logo": "https://manjaro.org/favicon.ico",
     "screenshots": [],
@@ -116,8 +193,16 @@
     "lightweight": false,
     "rolling": true,
     "enterprise": false,
-    "recommended_uses": ["Arch beginners", "Gaming", "Rolling release desktop"],
-    "related": ["arch-linux", "endeavouros", "garuda-linux"]
+    "recommended_uses": [
+      "Arch beginners",
+      "Gaming",
+      "Rolling release desktop"
+    ],
+    "related": [
+      "arch-linux",
+      "endeavouros",
+      "garuda-linux"
+    ]
   },
   {
     "name": "Pop!_OS",
@@ -126,11 +211,17 @@
     "family": "Debian",
     "base": "Ubuntu",
     "package_manager": "APT",
-    "desktop": ["COSMIC (custom GNOME)"],
+    "desktop": [
+      "COSMIC (custom GNOME)"
+    ],
     "release_model": "Fixed",
     "latest_version": "22.04 LTS",
     "release_date": "2022-04-22",
-    "categories": ["developer", "gaming", "desktop"],
+    "categories": [
+      "developer",
+      "gaming",
+      "desktop"
+    ],
     "description": "Pop!_OS by System76 is a developer-focused distribution with excellent hardware support, including NVIDIA GPU out-of-box. Features a tiling window manager and the COSMIC desktop environment.",
     "logo": "https://pop.system76.com/favicon.ico",
     "screenshots": [],
@@ -140,8 +231,17 @@
     "lightweight": false,
     "rolling": false,
     "enterprise": false,
-    "recommended_uses": ["Developers", "Gamers", "Creative professionals", "NVIDIA users"],
-    "related": ["ubuntu", "elementary-os", "ubuntu"]
+    "recommended_uses": [
+      "Developers",
+      "Gamers",
+      "Creative professionals",
+      "NVIDIA users"
+    ],
+    "related": [
+      "ubuntu",
+      "elementary-os",
+      "ubuntu"
+    ]
   },
   {
     "name": "Debian",
@@ -150,11 +250,22 @@
     "family": "Independent",
     "base": "Independent",
     "package_manager": "APT",
-    "desktop": ["GNOME", "KDE Plasma", "XFCE", "LXQt", "MATE", "Cinnamon"],
+    "desktop": [
+      "GNOME",
+      "KDE Plasma",
+      "XFCE",
+      "LXQt",
+      "MATE",
+      "Cinnamon"
+    ],
     "release_model": "Fixed",
     "latest_version": "12 (Bookworm)",
     "release_date": "2023-06-10",
-    "categories": ["server", "desktop", "stable"],
+    "categories": [
+      "server",
+      "desktop",
+      "stable"
+    ],
     "description": "Debian is one of the oldest and most respected Linux distributions. Renowned for stability, it serves as the base for Ubuntu, Linux Mint, and hundreds of other distributions. The universal operating system.",
     "logo": "https://debian.org/favicon.ico",
     "screenshots": [],
@@ -164,8 +275,17 @@
     "lightweight": false,
     "rolling": false,
     "enterprise": true,
-    "recommended_uses": ["Servers", "Stable workstations", "Base for other distros", "Long-term deployments"],
-    "related": ["ubuntu", "linux-mint", "devuan"]
+    "recommended_uses": [
+      "Servers",
+      "Stable workstations",
+      "Base for other distros",
+      "Long-term deployments"
+    ],
+    "related": [
+      "ubuntu",
+      "linux-mint",
+      "devuan"
+    ]
   },
   {
     "name": "openSUSE Tumbleweed",
@@ -174,11 +294,19 @@
     "family": "Independent",
     "base": "Independent",
     "package_manager": "Zypper",
-    "desktop": ["KDE Plasma", "GNOME", "XFCE"],
+    "desktop": [
+      "KDE Plasma",
+      "GNOME",
+      "XFCE"
+    ],
     "release_model": "Rolling",
     "latest_version": "Tumbleweed (rolling)",
     "release_date": "2024-06-10",
-    "categories": ["developer", "rolling", "desktop"],
+    "categories": [
+      "developer",
+      "rolling",
+      "desktop"
+    ],
     "description": "openSUSE Tumbleweed is a rolling release distribution from SUSE that features up-to-date packages while maintaining a high degree of stability through automated testing with openQA.",
     "logo": "https://opensuse.org/favicon.ico",
     "screenshots": [],
@@ -188,8 +316,16 @@
     "lightweight": false,
     "rolling": true,
     "enterprise": false,
-    "recommended_uses": ["Developers", "KDE enthusiasts", "Rolling release with stability"],
-    "related": ["opensuse-leap", "fedora", "arch-linux"]
+    "recommended_uses": [
+      "Developers",
+      "KDE enthusiasts",
+      "Rolling release with stability"
+    ],
+    "related": [
+      "opensuse-leap",
+      "fedora",
+      "arch-linux"
+    ]
   },
   {
     "name": "Tails",
@@ -198,11 +334,17 @@
     "family": "Debian",
     "base": "Debian",
     "package_manager": "APT",
-    "desktop": ["GNOME"],
+    "desktop": [
+      "GNOME"
+    ],
     "release_model": "Fixed",
     "latest_version": "6.3",
     "release_date": "2024-05-28",
-    "categories": ["privacy", "security", "live"],
+    "categories": [
+      "privacy",
+      "security",
+      "live"
+    ],
     "description": "Tails is a live operating system focused on anonymity and privacy. It routes internet traffic through Tor, leaves no trace on the host computer, and is designed for use from a USB drive.",
     "logo": "https://tails.boum.org/favicon.ico",
     "screenshots": [],
@@ -212,8 +354,17 @@
     "lightweight": true,
     "rolling": false,
     "enterprise": false,
-    "recommended_uses": ["Journalists", "Activists", "Privacy advocates", "Whistleblowers"],
-    "related": ["whonix", "qubes-os", "kali-linux"]
+    "recommended_uses": [
+      "Journalists",
+      "Activists",
+      "Privacy advocates",
+      "Whistleblowers"
+    ],
+    "related": [
+      "whonix",
+      "qubes-os",
+      "kali-linux"
+    ]
   },
   {
     "name": "Whonix",
@@ -222,11 +373,16 @@
     "family": "Debian",
     "base": "Debian",
     "package_manager": "APT",
-    "desktop": ["XFCE"],
+    "desktop": [
+      "XFCE"
+    ],
     "release_model": "Fixed",
     "latest_version": "17.1",
     "release_date": "2024-03-15",
-    "categories": ["privacy", "security"],
+    "categories": [
+      "privacy",
+      "security"
+    ],
     "description": "Whonix is a desktop operating system designed for advanced security and privacy. It uses a two-VM model — a Gateway routing traffic through Tor and a Workstation for user activity — to prevent IP leaks.",
     "logo": "https://whonix.org/favicon.ico",
     "screenshots": [],
@@ -236,8 +392,16 @@
     "lightweight": false,
     "rolling": false,
     "enterprise": false,
-    "recommended_uses": ["Maximum anonymity", "Security research", "Running alongside Tor"],
-    "related": ["tails", "qubes-os", "kali-linux"]
+    "recommended_uses": [
+      "Maximum anonymity",
+      "Security research",
+      "Running alongside Tor"
+    ],
+    "related": [
+      "tails",
+      "qubes-os",
+      "kali-linux"
+    ]
   },
   {
     "name": "Kali Linux",
@@ -246,11 +410,18 @@
     "family": "Debian",
     "base": "Debian",
     "package_manager": "APT",
-    "desktop": ["XFCE", "GNOME", "KDE Plasma"],
+    "desktop": [
+      "XFCE",
+      "GNOME",
+      "KDE Plasma"
+    ],
     "release_model": "Rolling",
     "latest_version": "2024.2",
     "release_date": "2024-06-05",
-    "categories": ["security", "developer"],
+    "categories": [
+      "security",
+      "developer"
+    ],
     "description": "Kali Linux is the leading distribution for penetration testing and security auditing. It ships with hundreds of pre-installed security tools and is maintained by Offensive Security.",
     "logo": "https://kali.org/favicon.ico",
     "screenshots": [],
@@ -260,8 +431,17 @@
     "lightweight": false,
     "rolling": true,
     "enterprise": false,
-    "recommended_uses": ["Penetration testing", "Security auditing", "Ethical hacking", "CTF competitions"],
-    "related": ["tails", "parrot-os", "blackarch"]
+    "recommended_uses": [
+      "Penetration testing",
+      "Security auditing",
+      "Ethical hacking",
+      "CTF competitions"
+    ],
+    "related": [
+      "tails",
+      "parrot-os",
+      "blackarch"
+    ]
   },
   {
     "name": "Garuda Linux",
@@ -270,11 +450,20 @@
     "family": "Independent",
     "base": "Arch",
     "package_manager": "Pacman",
-    "desktop": ["KDE Plasma", "GNOME", "XFCE", "Wayfire"],
+    "desktop": [
+      "KDE Plasma",
+      "GNOME",
+      "XFCE",
+      "Wayfire"
+    ],
     "release_model": "Rolling",
     "latest_version": "240501",
     "release_date": "2024-05-01",
-    "categories": ["gaming", "rolling", "desktop"],
+    "categories": [
+      "gaming",
+      "rolling",
+      "desktop"
+    ],
     "description": "Garuda Linux is an Arch-based distribution optimized for gaming and performance. It uses the BTRFS filesystem, automatic snapshots with Snapper, and gaming-optimized kernel settings out of the box.",
     "logo": "https://garudalinux.org/favicon.ico",
     "screenshots": [],
@@ -284,8 +473,16 @@
     "lightweight": false,
     "rolling": true,
     "enterprise": false,
-    "recommended_uses": ["Gaming on Linux", "Performance enthusiasts", "Arch with batteries included"],
-    "related": ["manjaro", "arch-linux", "nobara"]
+    "recommended_uses": [
+      "Gaming on Linux",
+      "Performance enthusiasts",
+      "Arch with batteries included"
+    ],
+    "related": [
+      "manjaro",
+      "arch-linux",
+      "nobara"
+    ]
   },
   {
     "name": "Nobara",
@@ -294,11 +491,17 @@
     "family": "Independent",
     "base": "Fedora",
     "package_manager": "DNF",
-    "desktop": ["GNOME", "KDE Plasma"],
+    "desktop": [
+      "GNOME",
+      "KDE Plasma"
+    ],
     "release_model": "Fixed",
     "latest_version": "40",
     "release_date": "2024-05-20",
-    "categories": ["gaming", "desktop"],
+    "categories": [
+      "gaming",
+      "desktop"
+    ],
     "description": "Nobara is a Fedora-based distribution created by GloriousEggroll, the creator of Proton-GE. It ships with gaming enhancements, OBS Studio fixes, and multimedia codecs out of the box.",
     "logo": "https://nobaraproject.org/favicon.ico",
     "screenshots": [],
@@ -308,8 +511,16 @@
     "lightweight": false,
     "rolling": false,
     "enterprise": false,
-    "recommended_uses": ["Linux gaming", "Content creation", "Fedora-based gaming"],
-    "related": ["fedora", "garuda-linux", "pop-os"]
+    "recommended_uses": [
+      "Linux gaming",
+      "Content creation",
+      "Fedora-based gaming"
+    ],
+    "related": [
+      "fedora",
+      "garuda-linux",
+      "pop-os"
+    ]
   },
   {
     "name": "Zorin OS",
@@ -318,11 +529,16 @@
     "family": "Debian",
     "base": "Ubuntu",
     "package_manager": "APT",
-    "desktop": ["Zorin Desktop (GNOME-based)"],
+    "desktop": [
+      "Zorin Desktop (GNOME-based)"
+    ],
     "release_model": "Fixed",
     "latest_version": "17.1",
     "release_date": "2024-03-27",
-    "categories": ["beginner", "desktop"],
+    "categories": [
+      "beginner",
+      "desktop"
+    ],
     "description": "Zorin OS is designed to be a Windows and macOS replacement for everyday users. It features a familiar desktop layout, built-in Windows app compatibility layer, and a polished visual design.",
     "logo": "https://zorinos.com/favicon.ico",
     "screenshots": [],
@@ -332,8 +548,17 @@
     "lightweight": false,
     "rolling": false,
     "enterprise": false,
-    "recommended_uses": ["Windows converts", "Non-technical users", "Home desktop", "Schools"],
-    "related": ["linux-mint", "ubuntu", "elementary-os"]
+    "recommended_uses": [
+      "Windows converts",
+      "Non-technical users",
+      "Home desktop",
+      "Schools"
+    ],
+    "related": [
+      "linux-mint",
+      "ubuntu",
+      "elementary-os"
+    ]
   },
   {
     "name": "EndeavourOS",
@@ -342,11 +567,22 @@
     "family": "Independent",
     "base": "Arch",
     "package_manager": "Pacman",
-    "desktop": ["XFCE", "KDE Plasma", "GNOME", "i3", "Cinnamon", "MATE"],
+    "desktop": [
+      "XFCE",
+      "KDE Plasma",
+      "GNOME",
+      "i3",
+      "Cinnamon",
+      "MATE"
+    ],
     "release_model": "Rolling",
     "latest_version": "Gemini 2024.04.20",
     "release_date": "2024-04-20",
-    "categories": ["developer", "rolling", "desktop"],
+    "categories": [
+      "developer",
+      "rolling",
+      "desktop"
+    ],
     "description": "EndeavourOS is a community-built Arch-based distribution that aims to be a spiritual successor to Antergos. It installs close to vanilla Arch but with a helpful installer and community support.",
     "logo": "https://endeavouros.com/favicon.ico",
     "screenshots": [],
@@ -356,8 +592,16 @@
     "lightweight": false,
     "rolling": true,
     "enterprise": false,
-    "recommended_uses": ["Arch-curious users", "Rolling release", "Community-driven Linux"],
-    "related": ["arch-linux", "manjaro", "garuda-linux"]
+    "recommended_uses": [
+      "Arch-curious users",
+      "Rolling release",
+      "Community-driven Linux"
+    ],
+    "related": [
+      "arch-linux",
+      "manjaro",
+      "garuda-linux"
+    ]
   },
   {
     "name": "Alpine Linux",
@@ -366,11 +610,17 @@
     "family": "Independent",
     "base": "Independent",
     "package_manager": "APK",
-    "desktop": ["None (minimal)"],
+    "desktop": [
+      "None (minimal)"
+    ],
     "release_model": "Fixed",
-    "latest_version": "3.20.1",
-    "release_date": "2024-06-04",
-    "categories": ["lightweight", "server", "containers"],
+    "latest_version": "20260127",
+    "release_date": "2026-06-16",
+    "categories": [
+      "lightweight",
+      "server",
+      "containers"
+    ],
     "description": "Alpine Linux is an extremely lightweight, security-oriented distribution built on musl libc and BusyBox. It's the default base image for Docker containers due to its tiny footprint.",
     "logo": "https://alpinelinux.org/favicon.ico",
     "screenshots": [],
@@ -380,8 +630,17 @@
     "lightweight": true,
     "rolling": false,
     "enterprise": true,
-    "recommended_uses": ["Docker containers", "Embedded systems", "Security-focused servers", "Minimal VMs"],
-    "related": ["debian", "arch-linux", "void-linux"]
+    "recommended_uses": [
+      "Docker containers",
+      "Embedded systems",
+      "Security-focused servers",
+      "Minimal VMs"
+    ],
+    "related": [
+      "debian",
+      "arch-linux",
+      "void-linux"
+    ]
   },
   {
     "name": "Void Linux",
@@ -390,11 +649,18 @@
     "family": "Independent",
     "base": "Independent",
     "package_manager": "XBPS",
-    "desktop": ["XFCE", "Any (user choice)"],
+    "desktop": [
+      "XFCE",
+      "Any (user choice)"
+    ],
     "release_model": "Rolling",
     "latest_version": "Rolling",
     "release_date": "2024-06-01",
-    "categories": ["rolling", "lightweight", "advanced"],
+    "categories": [
+      "rolling",
+      "lightweight",
+      "advanced"
+    ],
     "description": "Void Linux is an independent rolling-release distribution with a unique package manager (XBPS), runit init system instead of systemd, and support for both glibc and musl libc.",
     "logo": "https://voidlinux.org/favicon.ico",
     "screenshots": [],
@@ -404,8 +670,17 @@
     "lightweight": true,
     "rolling": true,
     "enterprise": false,
-    "recommended_uses": ["Advanced users", "Systemd alternatives", "Minimal systems", "Runit fans"],
-    "related": ["arch-linux", "alpine-linux", "gentoo"]
+    "recommended_uses": [
+      "Advanced users",
+      "Systemd alternatives",
+      "Minimal systems",
+      "Runit fans"
+    ],
+    "related": [
+      "arch-linux",
+      "alpine-linux",
+      "gentoo"
+    ]
   },
   {
     "name": "elementary OS",
@@ -414,11 +689,16 @@
     "family": "Debian",
     "base": "Ubuntu",
     "package_manager": "APT",
-    "desktop": ["Pantheon"],
+    "desktop": [
+      "Pantheon"
+    ],
     "release_model": "Fixed",
     "latest_version": "7.1",
     "release_date": "2023-09-18",
-    "categories": ["beginner", "desktop"],
+    "categories": [
+      "beginner",
+      "desktop"
+    ],
     "description": "elementary OS is a macOS-inspired Linux distribution focused on design and ease of use. It features the beautiful Pantheon desktop environment and its own curated App Center.",
     "logo": "https://elementary.io/favicon.ico",
     "screenshots": [],
@@ -428,8 +708,16 @@
     "lightweight": false,
     "rolling": false,
     "enterprise": false,
-    "recommended_uses": ["macOS converts", "Design-focused users", "Simple desktop computing"],
-    "related": ["ubuntu", "zorin-os", "linux-mint"]
+    "recommended_uses": [
+      "macOS converts",
+      "Design-focused users",
+      "Simple desktop computing"
+    ],
+    "related": [
+      "ubuntu",
+      "zorin-os",
+      "linux-mint"
+    ]
   },
   {
     "name": "NixOS",
@@ -438,11 +726,17 @@
     "family": "Independent",
     "base": "Independent",
     "package_manager": "Nix",
-    "desktop": ["Any (declarative config)"],
+    "desktop": [
+      "Any (declarative config)"
+    ],
     "release_model": "Fixed",
     "latest_version": "24.05",
     "release_date": "2024-05-31",
-    "categories": ["developer", "advanced", "server"],
+    "categories": [
+      "developer",
+      "advanced",
+      "server"
+    ],
     "description": "NixOS is a unique Linux distribution built on the Nix package manager, offering declarative, reproducible system configuration. Every aspect of the system is described in configuration files.",
     "logo": "https://nixos.org/favicon.ico",
     "screenshots": [],
@@ -452,8 +746,17 @@
     "lightweight": false,
     "rolling": false,
     "enterprise": true,
-    "recommended_uses": ["DevOps engineers", "Reproducible builds", "Configuration management", "Advanced users"],
-    "related": ["arch-linux", "guix", "void-linux"]
+    "recommended_uses": [
+      "DevOps engineers",
+      "Reproducible builds",
+      "Configuration management",
+      "Advanced users"
+    ],
+    "related": [
+      "arch-linux",
+      "guix",
+      "void-linux"
+    ]
   },
   {
     "name": "Lubuntu",
@@ -462,11 +765,17 @@
     "family": "Debian",
     "base": "Ubuntu",
     "package_manager": "APT",
-    "desktop": ["LXQt"],
+    "desktop": [
+      "LXQt"
+    ],
     "release_model": "Fixed",
     "latest_version": "24.04 LTS",
     "release_date": "2024-04-25",
-    "categories": ["lightweight", "beginner", "desktop"],
+    "categories": [
+      "lightweight",
+      "beginner",
+      "desktop"
+    ],
     "description": "Lubuntu is an official Ubuntu flavor using the LXQt desktop environment. Designed to run smoothly on older and low-spec hardware, it provides a complete desktop experience with minimal resource usage.",
     "logo": "https://lubuntu.me/favicon.ico",
     "screenshots": [],
@@ -476,7 +785,16 @@
     "lightweight": true,
     "rolling": false,
     "enterprise": false,
-    "recommended_uses": ["Old hardware", "Low-spec systems", "Netbooks", "Resource-constrained environments"],
-    "related": ["linux-mint", "ubuntu", "xubuntu"]
+    "recommended_uses": [
+      "Old hardware",
+      "Low-spec systems",
+      "Netbooks",
+      "Resource-constrained environments"
+    ],
+    "related": [
+      "linux-mint",
+      "ubuntu",
+      "xubuntu"
+    ]
   }
 ]
