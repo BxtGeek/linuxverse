@@ -1,0 +1,73 @@
+name: Update Distros & Deploy
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'   # monthly on the 1st
+  workflow_dispatch:        # manual trigger
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  update:
+    name: Fetch Release Data
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Update distro versions
+        run: node scripts/update-versions.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit updated data
+        run: |
+          git config user.name "linuxverse-bot"
+          git config user.email "bot@linuxverse"
+          git add src/data/distros.json
+          git diff --cached --quiet || git commit -m "chore: auto-update distro versions [$(date -u '+%Y-%m-%d')]"
+          git push
+
+  build:
+    name: Build Static Site
+    needs: update
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build site
+        run: node build.js
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

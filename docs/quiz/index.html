@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Distro Finder Quiz | LinuxVerse</title>
+  <meta name="description" content="Answer 6 quick questions to find the perfect Linux distribution for your needs.">
+  <link rel="canonical" href="https://yourusername.github.io/linuxverse/quiz/">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Distro Finder Quiz">
+  <meta property="og:description" content="Answer 6 quick questions to find the perfect Linux distribution for your needs.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourusername.github.io/linuxverse/quiz/">
+  <meta property="og:site_name" content="LinuxVerse">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Distro Finder Quiz">
+  <meta name="twitter:description" content="Answer 6 quick questions to find the perfect Linux distribution for your needs.">
+  <link rel="stylesheet" href="/linuxverse/assets/style.css">
+  <link rel="icon" href="/linuxverse/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/linuxverse/" class="nav-brand">
+      <span class="brand-icon">◈</span>
+      <span class="brand-name">Linux<span class="brand-accent">Verse</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="/linuxverse/" class="nav-link">Home</a><a href="/linuxverse/distros/" class="nav-link">Distros</a><a href="/linuxverse/compare/" class="nav-link">Compare</a><a href="/linuxverse/quiz/" class="nav-link active">Find My Distro</a>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle dark/light mode">☀</button>
+    </div>
+  </div>
+</nav>
+
+<main class="page-main">
+  <div class="page-header">
+    <h1>Find Your Linux Distribution</h1>
+    <p>Answer a few questions and we'll match you with the right distro.</p>
+  </div>
+
+  <div class="quiz-wrap" id="quiz">
+    <div class="quiz-progress"><div class="quiz-bar" id="quiz-bar"></div></div>
+
+    <div class="quiz-step active" data-step="0">
+      <h2>How would you describe your Linux experience?</h2>
+      <div class="quiz-options">
+        <button class="quiz-opt" data-key="beginner" data-val="true" onclick="pick(this)">🌱 Complete beginner — I've never used Linux</button>
+        <button class="quiz-opt" data-key="beginner" data-val="maybe" onclick="pick(this)">🌿 Some experience — I've tried Linux before</button>
+        <button class="quiz-opt" data-key="beginner" data-val="false" onclick="pick(this)">🌳 Experienced — I'm comfortable with the terminal</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" data-step="1">
+      <h2>Will you use this for gaming?</h2>
+      <div class="quiz-options">
+        <button class="quiz-opt" data-key="gaming" data-val="true" onclick="pick(this)">🎮 Yes, gaming is important to me</button>
+        <button class="quiz-opt" data-key="gaming" data-val="false" onclick="pick(this)">🖥️ No, productivity / work is my focus</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" data-step="2">
+      <h2>Is privacy and anonymity a priority?</h2>
+      <div class="quiz-options">
+        <button class="quiz-opt" data-key="privacy" data-val="true" onclick="pick(this)">🔒 Yes — I need maximum privacy</button>
+        <button class="quiz-opt" data-key="privacy" data-val="false" onclick="pick(this)">🔓 No — standard security is fine</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" data-step="3">
+      <h2>Are you a developer or software engineer?</h2>
+      <div class="quiz-options">
+        <button class="quiz-opt" data-key="developer" data-val="true" onclick="pick(this)">💻 Yes — I write code regularly</button>
+        <button class="quiz-opt" data-key="developer" data-val="false" onclick="pick(this)">📝 No — general use</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" data-step="4">
+      <h2>What hardware will you install this on?</h2>
+      <div class="quiz-options">
+        <button class="quiz-opt" data-key="lightweight" data-val="true" onclick="pick(this)">🐢 Old or low-spec hardware (< 4GB RAM)</button>
+        <button class="quiz-opt" data-key="lightweight" data-val="false" onclick="pick(this)">🚀 Modern hardware — no constraints</button>
+      </div>
+    </div>
+
+    <div class="quiz-step" data-step="5">
+      <h2>Do you prefer always-up-to-date software or rock-solid stability?</h2>
+      <div class="quiz-options">
+        <button class="quiz-opt" data-key="rolling" data-val="true" onclick="pick(this)">🔄 Rolling release — latest packages always</button>
+        <button class="quiz-opt" data-key="rolling" data-val="false" onclick="pick(this)">🏛️ Fixed release — tested, stable updates</button>
+      </div>
+    </div>
+
+    <div class="quiz-result" id="quiz-result" style="display:none">
+      <h2>Your Recommendations</h2>
+      <p class="result-sub">Based on your answers, here are the best Linux distributions for you:</p>
+      <div class="card-grid" id="result-cards"></div>
+      <button class="btn btn-secondary" onclick="restartQuiz()">↩ Start Over</button>
+    </div>
+  </div>
+</main>
+
+<script>
+const DISTROS = [{"name":"Ubuntu","slug":"ubuntu","website":"https://ubuntu.com","family":"Debian","base":"Debian","package_manager":"APT","desktop":["GNOME","KDE Plasma","XFCE","LXQt","MATE","Budgie"],"release_model":"Fixed","latest_version":"24.04 LTS","release_date":"2024-04-25","categories":["beginner","developer","desktop","server"],"description":"Ubuntu is one of the most popular Linux distributions, known for its ease of use and large community. Backed by Canonical, it offers long-term support releases every two years and standard releases every six months.","logo":"https://assets.ubuntu.com/v1/29985a98-ubuntu-logo32.png","screenshots":[],"beginner_friendly":true,"gaming":false,"privacy":false,"lightweight":false,"rolling":false,"enterprise":true,"recommended_uses":["General desktop","Web development","Server hosting","Learning Linux"],"related":["linux-mint","pop-os","zorin-os"]},{"name":"Fedora","slug":"fedora","website":"https://fedoraproject.org","family":"Independent","base":"Independent","package_manager":"DNF","desktop":["GNOME","KDE Plasma","XFCE","LXQt","MATE","Cinnamon"],"release_model":"Fixed","latest_version":"40","release_date":"2024-04-23","categories":["developer","desktop"],"description":"Fedora is a cutting-edge Linux distribution sponsored by Red Hat. It showcases the latest open-source technologies and serves as the upstream source for Red Hat Enterprise Linux.","logo":"https://fedoraproject.org/favicon.ico","screenshots":[],"beginner_friendly":false,"gaming":false,"privacy":false,"lightweight":false,"rolling":false,"enterprise":false,"recommended_uses":["Software development","Exploring new Linux features","GNOME desktop experience"],"related":["rhel","centos-stream","nobara"]},{"name":"Arch Linux","slug":"arch-linux","website":"https://archlinux.org","family":"Independent","base":"Independent","package_manager":"Pacman","desktop":["Any (user choice)"],"release_model":"Rolling","latest_version":"2024.06.01","release_date":"2024-06-01","categories":["developer","rolling","advanced"],"description":"Arch Linux is a minimalist, rolling-release distribution that gives users complete control over their system. Famous for its excellent wiki and AUR (Arch User Repository), it follows a 'do it yourself' philosophy.","logo":"https://archlinux.org/static/favicon.png","screenshots":[],"beginner_friendly":false,"gaming":false,"privacy":false,"lightweight":true,"rolling":true,"enterprise":false,"recommended_uses":["Advanced users","Custom system builds","Bleeding-edge software","Learning Linux internals"],"related":["manjaro","endeavouros","garuda-linux"]},{"name":"Linux Mint","slug":"linux-mint","website":"https://linuxmint.com","family":"Debian","base":"Ubuntu","package_manager":"APT","desktop":["Cinnamon","MATE","XFCE"],"release_model":"Fixed","latest_version":"21.3","release_date":"2024-01-12","categories":["beginner","desktop"],"description":"Linux Mint is designed to be easy to use and elegant. Built on Ubuntu, it provides a familiar desktop experience with the Cinnamon DE, making it ideal for Windows converts.","logo":"https://linuxmint.com/favicon.ico","screenshots":[],"beginner_friendly":true,"gaming":false,"privacy":false,"lightweight":false,"rolling":false,"enterprise":false,"recommended_uses":["Windows migrants","Home desktop","General productivity"],"related":["ubuntu","zorin-os","elementary-os"]},{"name":"Manjaro","slug":"manjaro","website":"https://manjaro.org","family":"Independent","base":"Arch","package_manager":"Pacman","desktop":["KDE Plasma","GNOME","XFCE"],"release_model":"Rolling","latest_version":"24.0","release_date":"2024-05-11","categories":["beginner","rolling","desktop"],"description":"Manjaro makes Arch Linux accessible to everyday users. It adds a graphical installer, curated software selection, and delayed rolling updates that are tested for stability before release.","logo":"https://manjaro.org/favicon.ico","screenshots":[],"beginner_friendly":true,"gaming":true,"privacy":false,"lightweight":false,"rolling":true,"enterprise":false,"recommended_uses":["Arch beginners","Gaming","Rolling release desktop"],"related":["arch-linux","endeavouros","garuda-linux"]},{"name":"Pop!_OS","slug":"pop-os","website":"https://pop.system76.com","family":"Debian","base":"Ubuntu","package_manager":"APT","desktop":["COSMIC (custom GNOME)"],"release_model":"Fixed","latest_version":"22.04 LTS","release_date":"2022-04-22","categories":["developer","gaming","desktop"],"description":"Pop!_OS by System76 is a developer-focused distribution with excellent hardware support, including NVIDIA GPU out-of-box. Features a tiling window manager and the COSMIC desktop environment.","logo":"https://pop.system76.com/favicon.ico","screenshots":[],"beginner_friendly":true,"gaming":true,"privacy":false,"lightweight":false,"rolling":false,"enterprise":false,"recommended_uses":["Developers","Gamers","Creative professionals","NVIDIA users"],"related":["ubuntu","elementary-os","ubuntu"]},{"name":"Debian","slug":"debian","website":"https://debian.org","family":"Independent","base":"Independent","package_manager":"APT","desktop":["GNOME","KDE Plasma","XFCE","LXQt","MATE","Cinnamon"],"release_model":"Fixed","latest_version":"12 (Bookworm)","release_date":"2023-06-10","categories":["server","desktop","stable"],"description":"Debian is one of the oldest and most respected Linux distributions. Renowned for stability, it serves as the base for Ubuntu, Linux Mint, and hundreds of other distributions. The universal operating system.","logo":"https://debian.org/favicon.ico","screenshots":[],"beginner_friendly":false,"gaming":false,"privacy":false,"lightweight":false,"rolling":false,"enterprise":true,"recommended_uses":["Servers","Stable workstations","Base for other distros","Long-term deployments"],"related":["ubuntu","linux-mint","devuan"]},{"name":"openSUSE Tumbleweed","slug":"opensuse-tumbleweed","website":"https://opensuse.org","family":"Independent","base":"Independent","package_manager":"Zypper","desktop":["KDE Plasma","GNOME","XFCE"],"release_model":"Rolling","latest_version":"Tumbleweed (rolling)","release_date":"2024-06-10","categories":["developer","rolling","desktop"],"description":"openSUSE Tumbleweed is a rolling release distribution from SUSE that features up-to-date packages while maintaining a high degree of stability through automated testing with openQA.","logo":"https://opensuse.org/favicon.ico","screenshots":[],"beginner_friendly":false,"gaming":false,"privacy":false,"lightweight":false,"rolling":true,"enterprise":false,"recommended_uses":["Developers","KDE enthusiasts","Rolling release with stability"],"related":["opensuse-leap","fedora","arch-linux"]},{"name":"Tails","slug":"tails","website":"https://tails.boum.org","family":"Debian","base":"Debian","package_manager":"APT","desktop":["GNOME"],"release_model":"Fixed","latest_version":"6.3","release_date":"2024-05-28","categories":["privacy","security","live"],"description":"Tails is a live operating system focused on anonymity and privacy. It routes internet traffic through Tor, leaves no trace on the host computer, and is designed for use from a USB drive.","logo":"https://tails.boum.org/favicon.ico","screenshots":[],"beginner_friendly":false,"gaming":false,"privacy":true,"lightweight":true,"rolling":false,"enterprise":false,"recommended_uses":["Journalists","Activists","Privacy advocates","Whistleblowers"],"related":["whonix","qubes-os","kali-linux"]},{"name":"Whonix","slug":"whonix","website":"https://whonix.org","family":"Debian","base":"Debian","package_manager":"APT","desktop":["XFCE"],"release_model":"Fixed","latest_version":"17.1","release_date":"2024-03-15","categories":["privacy","security"],"description":"Whonix is a desktop operating system designed for advanced security and privacy. It uses a two-VM model — a Gateway routing traffic through Tor and a Workstation for user activity — to prevent IP leaks.","logo":"https://whonix.org/favicon.ico","screenshots":[],"beginner_friendly":false,"gaming":false,"privacy":true,"lightweight":false,"rolling":false,"enterprise":false,"recommended_uses":["Maximum anonymity","Security research","Running alongside Tor"],"related":["tails","qubes-os","kali-linux"]},{"name":"Kali Linux","slug":"kali-linux","website":"https://kali.org","family":"Debian","base":"Debian","package_manager":"APT","desktop":["XFCE","GNOME","KDE Plasma"],"release_model":"Rolling","latest_version":"2024.2","release_date":"2024-06-05","categories":["security","developer"],"description":"Kali Linux is the leading distribution for penetration testing and security auditing. It ships with hundreds of pre-installed security tools and is maintained by Offensive Security.","logo":"https://kali.org/favicon.ico","screenshots":[],"beginner_friendly":false,"gaming":false,"privacy":false,"lightweight":false,"rolling":true,"enterprise":false,"recommended_uses":["Penetration testing","Security auditing","Ethical hacking","CTF competitions"],"related":["tails","parrot-os","blackarch"]},{"name":"Garuda Linux","slug":"garuda-linux","website":"https://garudalinux.org","family":"Independent","base":"Arch","package_manager":"Pacman","desktop":["KDE Plasma","GNOME","XFCE","Wayfire"],"release_model":"Rolling","latest_version":"240501","release_date":"2024-05-01","categories":["gaming","rolling","desktop"],"description":"Garuda Linux is an Arch-based distribution optimized for gaming and performance. It uses the BTRFS filesystem, automatic snapshots with Snapper, and gaming-optimized kernel settings out of the box.","logo":"https://garudalinux.org/favicon.ico","screenshots":[],"beginner_friendly":false,"gaming":true,"privacy":false,"lightweight":false,"rolling":true,"enterprise":false,"recommended_uses":["Gaming on Linux","Performance enthusiasts","Arch with batteries included"],"related":["manjaro","arch-linux","nobara"]},{"name":"Nobara","slug":"nobara","website":"https://nobaraproject.org","family":"Independent","base":"Fedora","package_manager":"DNF","desktop":["GNOME","KDE Plasma"],"release_model":"Fixed","latest_version":"40","release_date":"2024-05-20","categories":["gaming","desktop"],"description":"Nobara is a Fedora-based distribution created by GloriousEggroll, the creator of Proton-GE. It ships with gaming enhancements, OBS Studio fixes, and multimedia codecs out of the box.","logo":"https://nobaraproject.org/favicon.ico","screenshots":[],"beginner_friendly":true,"gaming":true,"privacy":false,"lightweight":false,"rolling":false,"enterprise":false,"recommended_uses":["Linux gaming","Content creation","Fedora-based gaming"],"related":["fedora","garuda-linux","pop-os"]},{"name":"Zorin OS","slug":"zorin-os","website":"https://zorinos.com","family":"Debian","base":"Ubuntu","package_manager":"APT","desktop":["Zorin Desktop (GNOME-based)"],"release_model":"Fixed","latest_version":"17.1","release_date":"2024-03-27","categories":["beginner","desktop"],"description":"Zorin OS is designed to be a Windows and macOS replacement for everyday users. It features a familiar desktop layout, built-in Windows app compatibility layer, and a polished visual design.","logo":"https://zorinos.com/favicon.ico","screenshots":[],"beginner_friendly":true,"gaming":false,"privacy":false,"lightweight":false,"rolling":false,"enterprise":false,"recommended_uses":["Windows converts","Non-technical users","Home desktop","Schools"],"related":["linux-mint","ubuntu","elementary-os"]},{"name":"EndeavourOS","slug":"endeavouros","website":"https://endeavouros.com","family":"Independent","base":"Arch","package_manager":"Pacman","desktop":["XFCE","KDE Plasma","GNOME","i3","Cinnamon","MATE"],"release_model":"Rolling","latest_version":"Gemini 2024.04.20","release_date":"2024-04-20","categories":["developer","rolling","desktop"],"description":"EndeavourOS is a community-built Arch-based distribution that aims to be a spiritual successor to Antergos. It installs close to vanilla Arch but with a helpful installer and community support.","logo":"https://endeavouros.com/favicon.ico","screenshots":[],"beginner_friendly":false,"gaming":false,"privacy":false,"lightweight":false,"rolling":true,"enterprise":false,"recommended_uses":["Arch-curious users","Rolling release","Community-driven Linux"],"related":["arch-linux","manjaro","garuda-linux"]},{"name":"Alpine Linux","slug":"alpine-linux","website":"https://alpinelinux.org","family":"Independent","base":"Independent","package_manager":"APK","desktop":["None (minimal)"],"release_model":"Fixed","latest_version":"3.20.1","release_date":"2024-06-04","categories":["lightweight","server","containers"],"description":"Alpine Linux is an extremely lightweight, security-oriented distribution built on musl libc and BusyBox. It's the default base image for Docker containers due to its tiny footprint.","logo":"https://alpinelinux.org/favicon.ico","screenshots":[],"beginner_friendly":false,"gaming":false,"privacy":true,"lightweight":true,"rolling":false,"enterprise":true,"recommended_uses":["Docker containers","Embedded systems","Security-focused servers","Minimal VMs"],"related":["debian","arch-linux","void-linux"]},{"name":"Void Linux","slug":"void-linux","website":"https://voidlinux.org","family":"Independent","base":"Independent","package_manager":"XBPS","desktop":["XFCE","Any (user choice)"],"release_model":"Rolling","latest_version":"Rolling","release_date":"2024-06-01","categories":["rolling","lightweight","advanced"],"description":"Void Linux is an independent rolling-release distribution with a unique package manager (XBPS), runit init system instead of systemd, and support for both glibc and musl libc.","logo":"https://voidlinux.org/favicon.ico","screenshots":[],"beginner_friendly":false,"gaming":false,"privacy":false,"lightweight":true,"rolling":true,"enterprise":false,"recommended_uses":["Advanced users","Systemd alternatives","Minimal systems","Runit fans"],"related":["arch-linux","alpine-linux","gentoo"]},{"name":"elementary OS","slug":"elementary-os","website":"https://elementary.io","family":"Debian","base":"Ubuntu","package_manager":"APT","desktop":["Pantheon"],"release_model":"Fixed","latest_version":"7.1","release_date":"2023-09-18","categories":["beginner","desktop"],"description":"elementary OS is a macOS-inspired Linux distribution focused on design and ease of use. It features the beautiful Pantheon desktop environment and its own curated App Center.","logo":"https://elementary.io/favicon.ico","screenshots":[],"beginner_friendly":true,"gaming":false,"privacy":false,"lightweight":false,"rolling":false,"enterprise":false,"recommended_uses":["macOS converts","Design-focused users","Simple desktop computing"],"related":["ubuntu","zorin-os","linux-mint"]},{"name":"NixOS","slug":"nixos","website":"https://nixos.org","family":"Independent","base":"Independent","package_manager":"Nix","desktop":["Any (declarative config)"],"release_model":"Fixed","latest_version":"24.05","release_date":"2024-05-31","categories":["developer","advanced","server"],"description":"NixOS is a unique Linux distribution built on the Nix package manager, offering declarative, reproducible system configuration. Every aspect of the system is described in configuration files.","logo":"https://nixos.org/favicon.ico","screenshots":[],"beginner_friendly":false,"gaming":false,"privacy":false,"lightweight":false,"rolling":false,"enterprise":true,"recommended_uses":["DevOps engineers","Reproducible builds","Configuration management","Advanced users"],"related":["arch-linux","guix","void-linux"]},{"name":"Lubuntu","slug":"lubuntu","website":"https://lubuntu.me","family":"Debian","base":"Ubuntu","package_manager":"APT","desktop":["LXQt"],"release_model":"Fixed","latest_version":"24.04 LTS","release_date":"2024-04-25","categories":["lightweight","beginner","desktop"],"description":"Lubuntu is an official Ubuntu flavor using the LXQt desktop environment. Designed to run smoothly on older and low-spec hardware, it provides a complete desktop experience with minimal resource usage.","logo":"https://lubuntu.me/favicon.ico","screenshots":[],"beginner_friendly":true,"gaming":false,"privacy":false,"lightweight":true,"rolling":false,"enterprise":false,"recommended_uses":["Old hardware","Low-spec systems","Netbooks","Resource-constrained environments"],"related":["linux-mint","ubuntu","xubuntu"]}];
+const answers = {};
+let step = 0;
+const TOTAL = 6;
+
+function pick(btn) {
+  answers[btn.dataset.key] = btn.dataset.val;
+  step++;
+  const bar = document.getElementById('quiz-bar');
+  bar.style.width = (step / TOTAL * 100) + '%';
+  const steps = document.querySelectorAll('.quiz-step');
+  steps[step - 1].classList.remove('active');
+  if (step < TOTAL) {
+    steps[step].classList.add('active');
+  } else {
+    showResults();
+  }
+}
+
+function score(d) {
+  let s = 0;
+  if (answers.beginner === 'true' && d.beginner_friendly) s += 3;
+  if (answers.beginner === 'true' && !d.beginner_friendly) s -= 5;
+  if (answers.beginner === 'false' && !d.beginner_friendly) s += 1;
+  if (answers.gaming === 'true' && d.gaming) s += 3;
+  if (answers.privacy === 'true' && d.privacy) s += 4;
+  if (answers.developer === 'true' && d.categories.includes('developer')) s += 2;
+  if (answers.lightweight === 'true' && d.lightweight) s += 3;
+  if (answers.lightweight === 'true' && !d.lightweight) s -= 2;
+  if (answers.rolling === 'true' && d.rolling) s += 2;
+  if (answers.rolling === 'false' && !d.rolling) s += 2;
+  return s;
+}
+
+function showResults() {
+  const ranked = [...DISTROS].sort((a, b) => score(b) - score(a)).slice(0, 4);
+  const cards = document.getElementById('result-cards');
+  cards.innerHTML = ranked.map(d => `
+    <div class="distro-card">
+      <div class="card-header">
+        <div class="card-logo">${d.name.charAt(0)}</div>
+        <div class="card-title"><h3><a href="/linuxverse/distro/${d.slug}/">${d.name}</a></h3></div>
+      </div>
+      <p class="card-desc">${d.description.slice(0, 120)}…</p>
+      <dl class="card-meta">
+        <dt>Base</dt><dd>${d.base}</dd>
+        <dt>Packages</dt><dd>${d.package_manager}</dd>
+        <dt>Model</dt><dd>${d.release_model}</dd>
+      </dl>
+      <a href="/linuxverse/distro/${d.slug}/" class="card-cta">Learn More →</a>
+    </div>`).join('');
+  document.getElementById('quiz-result').style.display = 'block';
+}
+
+function restartQuiz() {
+  Object.keys(answers).forEach(k => delete answers[k]);
+  step = 0;
+  document.getElementById('quiz-bar').style.width = '0';
+  document.querySelectorAll('.quiz-step').forEach((s, i) => {
+    s.classList.toggle('active', i === 0);
+  });
+  document.getElementById('quiz-result').style.display = 'none';
+}
+</script>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand-icon">◈</span> <strong>LinuxVerse</strong>
+      <p>An independent Linux distribution discovery platform. Not affiliated with any distribution.</p>
+    </div>
+    <div class="footer-links">
+      <a href="/linuxverse/">Home</a>
+      <a href="/linuxverse/distros/">All Distros</a>
+      <a href="/linuxverse/compare/">Compare</a>
+      <a href="/linuxverse/quiz/">Distro Finder</a>
+    </div>
+    <div class="footer-meta">
+      <p>Data updated automatically via GitHub Actions.</p>
+      <p><a href="https://github.com/yourusername/linuxverse">View on GitHub</a></p>
+    </div>
+  </div>
+</footer>
+<script src="/linuxverse/assets/main.js"></script>
+</body>
+</html>
